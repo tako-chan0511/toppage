@@ -2,7 +2,7 @@
 <template>
   <div class="game-item">
     <h2>{{ game.title }}</h2>
-    <p>{{ game.description }}</p>
+    <p class="description">{{ game.description }}</p>
     <div class="links">
       <a :href="game.url" target="_blank" rel="noopener">▶ Play</a>
       <a
