@@ -3,5 +3,13 @@
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
-  ]
+  ],
+   "compilerOptions": {
+    // 省略...
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  // "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.vue"]
 }

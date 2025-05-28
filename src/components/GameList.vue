@@ -19,7 +19,8 @@
 
 <script lang="ts" setup>
 import type { GameInfo } from '@/data/games'
-const props = defineProps<{ games: GameInfo[] }>()
+// 修正後：分割代入で直接 games を取り出す
+const { games } = defineProps<{ games: GameInfo[] }>()
 </script>
 
 <style scoped>

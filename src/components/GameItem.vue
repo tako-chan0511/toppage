@@ -29,9 +29,8 @@
 import type { GameInfo } from '@/data/games'
 import { defineProps } from 'vue'
 
-const props = defineProps<{
-  game: GameInfo
-}>()
+// 修正後：分割代入で直接 game を取り出す
+const { game } = defineProps<{ game: GameInfo }>()
 </script>
 
 <style scoped>
