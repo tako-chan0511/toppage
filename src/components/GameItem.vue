@@ -47,4 +47,16 @@ const { game } = defineProps<{ game: GameInfo }>()
 .links a:hover {
   text-decoration: underline;
 }
+/* src/components/GameItem.vue の <style> 内、あるいは global.css */
+.description {
+  color: #fff; /* デフォルトは白 */
+}
+
+/* モバイル（幅480px以下）のときだけダークテキストに */
+@media (max-width: 480px) {
+  .description {
+    color: #222 !important;
+  }
+}
+
 </style>
