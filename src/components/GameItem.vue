@@ -54,7 +54,8 @@ const { game } = defineProps<{ game: GameInfo }>()
 
 /* モバイル（幅480px以下）のときだけダークテキストに */
 @media (max-width: 480px) {
-  .description {
+  /* .game-item をつけるだけでも特異性UP */
+  .game-item .description {
     color: #222 !important;
   }
 }
