@@ -2,7 +2,7 @@
 <template>
   <div class="game-item">
     <!-- タイトルの先頭にアイコン挿入 -->
-    <h2>{{ game.icon ? `${game.icon} ` : '' }}{{ game.title }}</h2>
+    <h2>{{ game.title }}</h2>
     <p class="description">{{ game.description }}</p>
     <div class="links">
       <!-- Play -->
