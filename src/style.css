@@ -1,4 +1,5 @@
-:root {
+/* もともと :root にあった設定を #app に移動 */
+#app {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -11,6 +12,11 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
 }
 
 a {
@@ -58,15 +64,9 @@ button:focus-visible {
   padding: 2em;
 }
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
+/* ライトモード時も同様に #app に限定 */
 @media (prefers-color-scheme: light) {
-  :root {
+  #app {
     color: #213547;
     background-color: #ffffff;
   }
