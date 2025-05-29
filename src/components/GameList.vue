@@ -25,6 +25,13 @@ const { games } = defineProps<{ games: GameInfo[] }>()
   padding: 0;
   margin: 0;
 }
+.game-item {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.game-item:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
 
 /* レスポンシブ対応 */
 @media (max-width: 1024px) {
