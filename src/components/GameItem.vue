@@ -114,7 +114,7 @@ function trackAndGo(url: string) {
   margin: 0.5rem 0;
 }
 @media (max-width: 480px) {
-  .game-item .description {
+  #app .game-item .description {
     color: #222 !important;
   }
 }
