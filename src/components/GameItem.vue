@@ -1,11 +1,13 @@
 <!-- src/components/GameItem.vue -->
 <template>
   <div class="game-item">
-    <h2>{{ game.title }}</h2>
+    <!-- タイトルの先頭にアイコン挿入 -->
+    <h2>{{ game.icon ? `${game.icon} ` : '' }}{{ game.title }}</h2>
     <p class="description">{{ game.description }}</p>
     <div class="links">
       <!-- Play -->
       <a
+        class="btn btn-play"
         :href="game.url"
         target="_blank"
         rel="noopener"
@@ -16,6 +18,7 @@
       <!-- Demo -->
       <a
         v-if="game.demoUrl"
+        class="btn btn-demo"
         :href="game.demoUrl"
         target="_blank"
         rel="noopener"
@@ -26,6 +29,7 @@
       <!-- Repo -->
       <a
         v-if="game.repo"
+        class="btn btn-repo"
         :href="`https://github.com/${game.repo}`"
         target="_blank"
         rel="noopener"
@@ -60,12 +64,10 @@ function trackAndGo(url: string) {
         window.open(url, '_blank')
       },
     })
-    // 万一に備えたタイムアウト保険
     setTimeout(() => {
       window.open(url, '_blank')
     }, 500)
   } else {
-    // gtag が無ければ普通に遷移
     window.open(url, '_blank')
   }
 }
@@ -79,19 +81,39 @@ function trackAndGo(url: string) {
   background: #fff;
   margin-bottom: 1rem;
 }
-.links a {
+
+.links {
+  margin-top: 0.5rem;
+}
+.btn {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
   margin-right: 0.5rem;
-  color: #42b983;
+  border-radius: 4px;
+  font-size: 0.9rem;
   text-decoration: none;
+  transition: opacity 0.2s;
 }
-.links a:hover {
-  text-decoration: underline;
-}
-/* デフォルト白文字 */
-.description {
+.btn-play {
+  background-color: #42b983;
   color: #fff;
 }
-/* モバイル（幅480px以下）ではダークテキストに */
+.btn-demo {
+  background-color: #ffae00;
+  color: #fff;
+}
+.btn-repo {
+  background-color: #333;
+  color: #fff;
+}
+.btn:hover {
+  opacity: 0.8;
+}
+
+.description {
+  color: #555;
+  margin: 0.5rem 0;
+}
 @media (max-width: 480px) {
   .game-item .description {
     color: #222 !important;
