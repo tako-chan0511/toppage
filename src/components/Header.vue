@@ -34,19 +34,21 @@
   align-items: center;
 }
 .header__icon {
-  font-size: 2rem;
+  font-size: 3rem;
   margin-right: 0.5rem;
 }
 .header__title {
   font-size: 2.5rem;
   color: #fff;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
   margin: 0;
 }
 .header__subtitle {
-  margin-top: 0.75rem;
-  font-size: 1.25rem;
+  /* 右左を auto にして要素自体を中央寄せ、要素内テキストは左揃え */
+  margin: 0.75rem auto 0;
+  max-width: 700px;
+  font-size: 1.5rem;
   color: #ddd;
-  text-align: center;
+  text-align: left;
 }
 </style>
