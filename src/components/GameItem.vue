@@ -87,12 +87,13 @@ function trackAndGo(url: string) {
 }
 .btn {
   display: inline-block;
-  padding: 0.4rem 0.8rem;
-  margin-right: 0.5rem;
+  padding: 0.5em 1em;
   border-radius: 4px;
-  font-size: 0.9rem;
+  background-color: #42b983;
+  color: #fff;
   text-decoration: none;
-  transition: opacity 0.2s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: background-color .2s;
 }
 .btn-play {
   background-color: #42b983;
@@ -106,9 +107,7 @@ function trackAndGo(url: string) {
   background-color: #333;
   color: #fff;
 }
-.btn:hover {
-  opacity: 0.8;
-}
+.btn:hover { background-color: #36a36d; }
 
 .description {
   color: #555;
