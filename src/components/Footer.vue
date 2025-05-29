@@ -7,7 +7,14 @@
         <span class="nickname">たこちゃん</span>
       </div>
       <div class="contact">
-        <a href="mailto:harakeisuke7@gmail.com">harakeisuke7@gmail.com</a>
+        <!-- メールアイコンをクリック → mailto -->
+        <a
+          href="mailto:harakeisuke7@gmail.com"
+          class="email-link"
+          title="メールを送信"
+        >
+          ✉️
+        </a>
       </div>
       <div class="links">
         <a
@@ -17,7 +24,11 @@
         >
           自己紹介動画
         </a>
-        <a href="https://github.com/tako-chan0511" target="_blank" rel="noopener">
+        <a
+          href="https://github.com/tako-chan0511"
+          target="_blank"
+          rel="noopener"
+        >
           GitHub
         </a>
       </div>
@@ -54,16 +65,21 @@
 .icon {
   font-size: 1.2rem;
 }
-.contact a,
-.links a {
+.contact .email-link {
+  font-size: 1.2rem;
   color: #42b983;
   text-decoration: none;
+  transition: transform 0.2s;
+}
+.contact .email-link:hover {
+  transform: scale(1.2);
 }
 .links a {
   margin: 0 0.5rem;
+  color: #42b983;
+  text-decoration: none;
 }
-.links a:hover,
-.contact a:hover {
+.links a:hover {
   text-decoration: underline;
 }
 copyright {
