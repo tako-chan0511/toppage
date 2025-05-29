@@ -128,7 +128,7 @@ function trackAndGo(url: string) {
 }
 .btn:hover { background-color: #36a36d; }
 
-.description {
+#app .description {
   color: #555;
   margin: 0.5rem 0;
 }
