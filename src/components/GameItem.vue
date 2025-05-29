@@ -1,13 +1,11 @@
 <!-- src/components/GameItem.vue -->
 <template>
   <div class="game-item">
-    <!-- タイトルの先頭にアイコン挿入 -->
     <h2>{{ game.title }}</h2>
     <p class="description">{{ game.description }}</p>
     <div class="links">
       <!-- Play -->
       <a
-        class="btn btn-play"
         :href="game.url"
         target="_blank"
         rel="noopener"
@@ -18,7 +16,6 @@
       <!-- Demo -->
       <a
         v-if="game.demoUrl"
-        class="btn btn-demo"
         :href="game.demoUrl"
         target="_blank"
         rel="noopener"
@@ -29,7 +26,6 @@
       <!-- Repo -->
       <a
         v-if="game.repo"
-        class="btn btn-repo"
         :href="`https://github.com/${game.repo}`"
         target="_blank"
         rel="noopener"
@@ -42,13 +38,13 @@
 </template>
 
 <script lang="ts" setup>
-// gtag をグローバル変数として認識させる宣言
+// gtag をグローバル変数として認識
 declare const gtag: (...args: any[]) => void
 
 import type { GameInfo } from '@/data/games'
 import { defineProps } from 'vue'
 
-// props から game を直接取り出す
+// props から game を直接取り出し
 const { game } = defineProps<{ game: GameInfo }>()
 
 /**
@@ -64,6 +60,7 @@ function trackAndGo(url: string) {
         window.open(url, '_blank')
       },
     })
+    // 保険として遅延オープン
     setTimeout(() => {
       window.open(url, '_blank')
     }, 500)
@@ -77,64 +74,37 @@ function trackAndGo(url: string) {
 .game-item {
   padding: 1rem;
   border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: 0.5rem;
   background: #fff;
   margin-bottom: 1rem;
 }
 
+/* Step2: ボタンを横並び＆同じサイズに */
 .links {
   display: flex;
-  gap: 0.5rem;            /* ボタン間の隙間 */
+  gap: 0.5rem;
 }
-
 .links a {
-  flex: 1;                /* 等分レイアウト */
+  flex: 1;                           /* 幅を均等に */
   display: inline-block;
-  padding: 0.6em 0;       /* 上下に余白をつける */
+  padding: 0.6rem 0;                 /* 上下に余白を揃える */
   background-color: #42b983;
-  color: #fff !important; /* テキストは白 */
-  border-radius: 4px;
+  color: #fff !important;
   text-align: center;
+  border-radius: 0.5rem;
   text-decoration: none;
+  font-size: 0.9rem;
   font-weight: 500;
   transition: background-color 0.2s;
 }
-
 .links a:hover {
-  background-color: #369870;
+  background-color: #369c6e;
 }
 
-.btn {
-  display: inline-block;
-  padding: 0.5em 1em;
-  border-radius: 4px;
-  background-color: #42b983;
-  color: #fff;
-  text-decoration: none;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  transition: background-color .2s;
-}
-.btn-play {
-  background-color: #42b983;
-  color: #fff;
-}
-.btn-demo {
-  background-color: #ffae00;
-  color: #fff;
-}
-.btn-repo {
-  background-color: #333;
-  color: #fff;
-}
-.btn:hover { background-color: #36a36d; }
-
-#app .description {
-  color: #555;
-  margin: 0.5rem 0;
-}
-@media (max-width: 480px) {
-  #app .game-item .description {
-    color: #222 !important;
-  }
+/* 説明文 */
+.description {
+  color: #333;
+  margin: 0.5rem 0 1rem;
+  font-size: 0.9rem;
 }
 </style>
