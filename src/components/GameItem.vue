@@ -31,7 +31,7 @@
         rel="noopener"
         @click.prevent="trackAndGo(`https://github.com/${game.repo}`)"
       >
-        📂 Repo
+        📂 GitHub
       </a>
     </div>
   </div>
