@@ -83,8 +83,27 @@ function trackAndGo(url: string) {
 }
 
 .links {
-  margin-top: 0.5rem;
+  display: flex;
+  gap: 0.5rem;            /* ボタン間の隙間 */
 }
+
+.links a {
+  flex: 1;                /* 等分レイアウト */
+  display: inline-block;
+  padding: 0.6em 0;       /* 上下に余白をつける */
+  background-color: #42b983;
+  color: #fff !important; /* テキストは白 */
+  border-radius: 4px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.links a:hover {
+  background-color: #369870;
+}
+
 .btn {
   display: inline-block;
   padding: 0.5em 1em;
