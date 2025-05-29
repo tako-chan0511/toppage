@@ -9,7 +9,8 @@
       </div>
       <p class="header__subtitle">
         モダンなVue3とReactで勉強がてらに作ったゲームポータルです。<br>
-        ゲームのホスティングはGitHub-PagesとVercelを活用しています。
+        ゲームのホスティングはGitHub-PagesとVercelを活用しています。<br>
+        ソースやアーキテクチャはGitHubボタンで確認してください。
       </p>
     </div>
   </header>
