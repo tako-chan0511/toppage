@@ -4,7 +4,7 @@
     <h2>{{ game.title }}</h2>
     <p class="description">{{ game.description }}</p>
     <div class="links">
-      <!-- Play リンク -->
+      <!-- Play -->
       <a
         :href="game.url"
         target="_blank"
@@ -13,7 +13,7 @@
       >
         ▶ Play
       </a>
-      <!-- Demo リンク -->
+      <!-- Demo -->
       <a
         v-if="game.demoUrl"
         :href="game.demoUrl"
@@ -23,7 +23,7 @@
       >
         📺 Demo
       </a>
-      <!-- Repo リンク -->
+      <!-- Repo -->
       <a
         v-if="game.repo"
         :href="`https://github.com/${game.repo}`"
@@ -38,16 +38,17 @@
 </template>
 
 <script lang="ts" setup>
+// gtag をグローバル変数として認識させる宣言
+declare const gtag: (...args: any[]) => void
+
 import type { GameInfo } from '@/data/games'
 import { defineProps } from 'vue'
 
-// props から直接 game を受け取る
+// props から game を直接取り出す
 const { game } = defineProps<{ game: GameInfo }>()
 
 /**
- * 外部リンククリックを GA4 に送信してから遷移する
- * transport_type: 'beacon' と event_callback で送信完了後に開き、
- * タイムアウト保険も入れておく
+ * 外部リンククリックを GA4 に送信してから遷移するヘルパー
  */
 function trackAndGo(url: string) {
   if (typeof gtag === 'function') {
@@ -57,14 +58,14 @@ function trackAndGo(url: string) {
       transport_type: 'beacon',
       event_callback: () => {
         window.open(url, '_blank')
-      }
+      },
     })
-    // タイムアウト保険：500ms後に飛ばす
+    // 万一に備えたタイムアウト保険
     setTimeout(() => {
       window.open(url, '_blank')
     }, 500)
   } else {
-    // gtag がなければそのまま開く
+    // gtag が無ければ普通に遷移
     window.open(url, '_blank')
   }
 }
@@ -86,11 +87,11 @@ function trackAndGo(url: string) {
 .links a:hover {
   text-decoration: underline;
 }
-/* 説明文はデフォルト白文字 */
+/* デフォルト白文字 */
 .description {
   color: #fff;
 }
-/* モバイル（幅480px以下）では読みやすいダークテキストに */
+/* モバイル（幅480px以下）ではダークテキストに */
 @media (max-width: 480px) {
   .game-item .description {
     color: #222 !important;
