@@ -1,25 +1,24 @@
-<!-- src/App.vue -->
+// src/App.vue（更新）
 <template>
-  <div class="container">
-    <h1>🎮 ゲームハブ</h1>
-    <GameList :games="games" />
+  <div id="app">
+    <Header />
+    <main>
+      <!-- <h1>🎮 ゲームハブ</h1> -->
+      <GameList :games="games" />
+    </main>
+    <Footer />
   </div>
 </template>
 
 <script lang="ts" setup>
+import Header from '@/components/Header.vue'
+import Footer from '@/components/Footer.vue'
 import GameList from '@/components/GameList.vue'
 import { games } from '@/data/games'
 </script>
 
 <style>
-.container {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-  font-family: Arial, sans-serif;
-}
-h1 {
-  text-align: center;
-  margin-bottom: 1.5rem;
+main {
+  padding: 2rem;
 }
 </style>
