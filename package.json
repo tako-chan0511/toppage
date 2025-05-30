@@ -5,23 +5,23 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc -b && vite build",                                 // Vercel／ローカル用
-    "build:gh": "vue-tsc -b && vite build --base /toppage/",              // GH-Pages用
+    "build": "vue-tsc -b && vite build",
+    "build:gh": "vue-tsc -b && vite build --base /toppage/",
     "preview": "vite preview",
-    "predeploy": "npm run build:gh",                                      // deploy の前に build:gh を呼ぶ
+    "predeploy": "npm run build:gh",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.49.8",
     "vue": "^3.5.13"
   },
   "devDependencies": {
-    "@types/node": "^22.15.27",
+    "@types/node": "^22.15.23",
     "@vitejs/plugin-vue": "^5.2.3",
     "@vue/tsconfig": "^0.7.0",
     "gh-pages": "^6.3.0",
     "typescript": "~5.8.3",
     "vite": "^6.3.5",
-    "vue-tsc": "^2.2.8"
+    "vue-tsc": "^2.2.8",
+    "@supabase/supabase-js": "^2.29.0"
   }
 }
