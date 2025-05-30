@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc -b && vite build",
+    "build": "vue-tsc -b && vite build",                                 // Vercel／ローカル用
+    "build:gh": "vue-tsc -b && vite build --base /toppage/",              // GH-Pages用
     "preview": "vite preview",
-    "predeploy": "npm run build",
+    "predeploy": "npm run build:gh",                                      // deploy の前に build:gh を呼ぶ
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
