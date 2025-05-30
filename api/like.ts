@@ -1,3 +1,4 @@
+// api/like.ts
 import { createClient } from '@supabase/supabase-js';
 
 const supabase = createClient(
@@ -7,10 +8,7 @@ const supabase = createClient(
 
 export default async function handler(req: any, res: any) {
   try {
-    // ① game パラメータを取得
     const game = String(req.query.game || '');
-
-    // ② 現在の count を取得
     const { data, error: selErr } = await supabase
       .from('page_views')
       .select('count')
@@ -22,10 +20,9 @@ export default async function handler(req: any, res: any) {
       return res.status(500).json({ error: selErr.message });
     }
 
-    // ③ カウントアップ
-    const newCount = (data?.count ?? 0) + 1;
+    const current = data?.count ?? 0;
+    const newCount = current + 1;
 
-    // ④ upsert で更新または挿入
     const { error: upErr } = await supabase
       .from('page_views')
       .upsert({ game, count: newCount }, { onConflict: 'game' });
@@ -35,7 +32,7 @@ export default async function handler(req: any, res: any) {
       return res.status(500).json({ error: upErr.message });
     }
 
-    return res.status(200).json({ ok: true });
+    return res.status(200).json({ ok: true, count: newCount });
   } catch (e: any) {
     console.error('Handler exception:', e);
     return res.status(500).json({ error: e.message });

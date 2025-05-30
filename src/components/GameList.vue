@@ -1,18 +1,25 @@
 <!-- src/components/GameList.vue -->
 <template>
   <div class="game-list">
-    <GameItem
+    <div
       v-for="game in games"
       :key="game.id"
-      :game="game"
-    />
+      class="game-item"
+    >
+      <!-- 既存のゲームアイテム -->
+      <GameItem :game="game" />
+
+      <!-- 追加：アクセス数＆いいね数 -->
+      <GameStats :gameId="game.id" />
+    </div>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { defineProps } from 'vue'
 import type { GameInfo } from '@/data/games'
-import GameItem from '@/components/GameItem.vue'  // ここが必須
+import GameItem from '@/components/GameItem.vue'
+import GameStats from '@/components/GameStats.vue'  // 追加
 
 const { games } = defineProps<{ games: GameInfo[] }>()
 </script>
@@ -27,6 +34,9 @@ const { games } = defineProps<{ games: GameInfo[] }>()
 }
 .game-item {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 8px;
 }
 .game-item:hover {
   transform: translateY(-4px) scale(1.02);
