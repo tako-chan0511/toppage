@@ -81,7 +81,14 @@ export const games: GameInfo[] = [
     demoUrl: 'https://drive.google.com/file/d/1SRR_kq2U7pKwWPEBf5kmql7IYfdpSWaa/view?usp=drive_link',
     repo: 'tako-chan0511/breakout',
   },
-  
+  {
+    id: 'squared-streamlit(python)',
+    title: '🔲 二乗数アプリ (streamlit Comumunity Cloud)',
+    description: 'streamlit(python)で実装。スマホスワイプ対応。',
+    url: 'https://squared-cypmgjuwvks8uqqehiuy2p.streamlit.app/',
+    demoUrl: '',
+    repo: 'tako-chan0511/sq2',
+  },
 
 
   // …他のゲームも同様に
