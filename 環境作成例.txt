@@ -136,3 +136,4 @@ transport_type: 'beacon' により、ブラウザがバックグラウンドで�
 
 これで、GA4 の「イベント」→「outbound_click」で、event_label に各 URL が記録され、クリック数が把握できるようになります。
 
+
