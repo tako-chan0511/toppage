@@ -1,4 +1,4 @@
-// api/like.ts
+// api/get-count.ts
 import { createClient } from '@supabase/supabase-js';
 
 const supabase = createClient(
@@ -17,33 +17,21 @@ export default async function handler(req: any, res: any) {
 
   try {
     const game = String(req.query.game || '');
+    const field = String(req.query.field || 'views'); // 'views' or 'likes'
 
-    // ① 現在の likes を取得
-    const { data, error: selErr } = await supabase
+    const { data, error } = await supabase
       .from('page_views')
-      .select('likes')
+      .select(field)
       .eq('game', game)
       .single();
 
-    if (selErr && selErr.code !== 'PGRST116') {
-      console.error('Select error:', selErr);
-      return res.status(500).json({ error: selErr.message });
+    if (error && error.code !== 'PGRST116') {
+      console.error('Select error:', error);
+      return res.status(500).json({ error: error.message });
     }
 
-    // ② likes を +1
-    const newLikes = (data?.likes ?? 0) + 1;
-
-    // ③ upsert して likes を更新
-    const { error: upErr } = await supabase
-      .from('page_views')
-      .upsert({ game, likes: newLikes }, { onConflict: 'game' });
-
-    if (upErr) {
-      console.error('Upsert error:', upErr);
-      return res.status(500).json({ error: upErr.message });
-    }
-
-    return res.status(200).json({ ok: true, likes: newLikes });
+    const current = (data as any)?.[field] ?? 0;
+    return res.status(200).json({ count: current });
   } catch (e: any) {
     console.error('Handler exception:', e);
     return res.status(500).json({ error: e.message });

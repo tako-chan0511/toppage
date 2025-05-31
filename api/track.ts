@@ -1,3 +1,4 @@
+// api/track.ts
 import { createClient } from '@supabase/supabase-js';
 
 const supabase = createClient(
@@ -6,14 +7,23 @@ const supabase = createClient(
 );
 
 export default async function handler(req: any, res: any) {
+  // 1) CORS プリフライトまたは GET リクエストを許可
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  // OPTIONS リクエストには 204 返して終わり
+  if (req.method === 'OPTIONS') {
+    return res.status(204).end();
+  }
+
   try {
-    // ① game パラメータを取得
     const game = String(req.query.game || '');
 
-    // ② 現在の count を取得
+    // ① 現在の views を取得
     const { data, error: selErr } = await supabase
       .from('page_views')
-      .select('count')
+      .select('views')
       .eq('game', game)
       .single();
 
@@ -22,20 +32,20 @@ export default async function handler(req: any, res: any) {
       return res.status(500).json({ error: selErr.message });
     }
 
-    // ③ カウントアップ
-    const newCount = (data?.count ?? 0) + 1;
+    // ② views を +1
+    const newViews = (data?.views ?? 0) + 1;
 
-    // ④ upsert で更新または挿入
+    // ③ upsert して views を更新
     const { error: upErr } = await supabase
       .from('page_views')
-      .upsert({ game, count: newCount }, { onConflict: 'game' });
+      .upsert({ game, views: newViews }, { onConflict: 'game' });
 
     if (upErr) {
       console.error('Upsert error:', upErr);
       return res.status(500).json({ error: upErr.message });
     }
 
-    return res.status(200).json({ ok: true });
+    return res.status(200).json({ ok: true, views: newViews });
   } catch (e: any) {
     console.error('Handler exception:', e);
     return res.status(500).json({ error: e.message });
