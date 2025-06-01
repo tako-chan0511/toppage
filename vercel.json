@@ -11,5 +11,4 @@
       "use": "@vercel/node"
     }
   ]
-  // routes セクションは不要です！
 }
