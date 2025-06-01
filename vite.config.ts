@@ -1,25 +1,15 @@
-// vite.config.ts
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import path from 'path'
-
-export default defineConfig({
-  base: '/',                 // ルートを常に “/” に設定
-  plugins: [vue()],
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, 'src'),
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "dist" }
     },
-  },
-  // .html ファイルを JS として import 解析しないようにする
-  assetsInclude: ['**/*.html'],
-  server: {
-    proxy: {
-      // フロント側から /api/* へアクセスされたら、localhost:3000/api/* に自動転送する
-      '/api': {
-        target: 'http://localhost:3000',
-        changeOrigin: true,
-      },
-    },
-  },
-})
+    {
+      "src": "api/**/*.ts",
+      "use": "@vercel/node"
+    }
+  ]
+  // routes セクションは不要です！
+}
