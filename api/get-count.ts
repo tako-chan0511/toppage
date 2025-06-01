@@ -1,8 +1,6 @@
-// api/get-count.ts
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 import { createClient } from '@supabase/supabase-js'
 
-// Vercel の Environment Variables から値を取得
 const supabase = createClient(
   process.env.SUPABASE_URL || '',
   process.env.SUPABASE_KEY || ''
@@ -12,32 +10,29 @@ export default async function handler(
   req: VercelRequest,
   res: VercelResponse
 ) {
-  // CORS（必要なら）
+  // 例：CORS ヘッダー
   res.setHeader('Access-Control-Allow-Origin', '*')
   res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS')
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
 
-  // プリフライト対応
   if (req.method === 'OPTIONS') {
     return res.status(204).end()
   }
-
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Method not allowed' })
   }
 
   try {
-    // 必要な環境変数があるかチェック
+    // 環境変数チェック
     if (!process.env.SUPABASE_URL || !process.env.SUPABASE_KEY) {
       console.error('[get-count] Missing SUPABASE_URL or SUPABASE_KEY')
       return res.status(500).json({ error: 'Server configuration error' })
     }
 
-    // クエリを受け取る
+    // クエリの取り出し（例：game と field）
     const gameParam = req.query.game
     const fieldParam = req.query.field
 
-    // game と field は文字列として取り出す
     const game = Array.isArray(gameParam)
       ? gameParam[0]
       : (gameParam || '').toString()
@@ -47,7 +42,9 @@ export default async function handler(
 
     if (!game) {
       console.error('[get-count] "game" query is missing or empty')
-      return res.status(400).json({ error: '"game" query parameter is required' })
+      return res
+        .status(400)
+        .json({ error: '"game" query parameter is required' })
     }
 
     if (field !== 'views' && field !== 'likes') {
@@ -64,7 +61,7 @@ export default async function handler(
       .eq('game', game)
       .single()
 
-    // テーブルにレコードがない場合 (error.code === 'PGRST116') は 0 とみなす
+    // レコードがなければ error.code === 'PGRST116' → 0 と扱う
     if (error && (error.code as string) !== 'PGRST116') {
       console.error('[get-count] Supabase select error:', error)
       return res.status(500).json({ error: error.message })
