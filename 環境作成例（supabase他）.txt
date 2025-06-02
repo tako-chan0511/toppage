@@ -573,9 +573,63 @@ game='test-page' のレコードがあり、count が増えているか見る
 ご参考になれば幸いです。
 
 
+--------------------------------
 
+今回のポイントをざっくりおさらい
+1.vite.config.ts でポートを固定しない
 
+// 悪い例: port: 5173 とハードコードしてしまうと、vercel dev と衝突する
+server: {
+  port: 5173,
+  strictPort: true,
+  //…
+}
+// ↓
+// 良い例: process.env.PORT があればそれを優先して使い、なければ 5173
+server: {
+  port: Number(process.env.PORT) || 5173,
+  strictPort: true,
+}
+これにより、
+単独で npm run dev → フロントは 5173 で起動
 
+npx vercel dev（または npx vercel dev --listen 3000）→ Vercel Dev が渡す PORT=3000 を受けて、フロントも 3000 で起動し、API へのルーティングは自動的に Functions 側へ委譲
+というフローが成り立つようになります。
+
+ローカルでの動作確認手順
+端末A で npm run dev を走らせ→ http://localhost:5173 でフロントが表示されることを確認
+端末B で npx vercel dev --listen 3000 を走らせ→ http://localhost:3000/api/get-count?... などで API が動いていることを確認
+この両者がそれぞれ正常に動くとわかったら、改めて 端末A で npx vercel dev を一発で起動し→ http://localhost:3000 で「フロント＋API」がまとめて起動することを確かめる
+
+CORS／import-analysis 周りの微調整
+assetsInclude: ['**/*.html'] を設定しておくことで、Vite が index.html をアセットとして正しく扱い、
+import-analysis エラーや 500 エラーを防ぎます。
+
+フロントからの /api/... リクエストはすべて VITE_API_BASE（開発環境時は http://localhost:3000）を先頭に付けることで、
+Axios の呼び出し先が正しく Functions に届くようになります。
+
+今回の一連の修正によって、ローカルでは「5173: フロント」「3000: API」がそれぞれ正常に動作し、さらに npx vercel dev を一発で叩いても両者がぶつからずに共存できるようになっています。
+
+次にやること
+本番環境向けにデプロイ
+GitHub などにコミット＆プッシュして、Vercel の Production 環境にマージすれば、自動的にビルド＆デプロイが始まります。
+本番では VITE_API_BASE は不要（Functions への相対パス /api/... が自動的に正しい場所を指します）。
+環境変数（SUPABASE_URL と SUPABASE_KEY）は Vercel のダッシュボードから本番用にも設定しておきましょう。
+
+動作確認
+デプロイ完了後、公開URL（例： https://<your-project>.vercel.app）にブラウザでアクセスし、
+フロント側の UI が正しく表示される
+ページ読み込み時にビュー数がカウントアップされる
+
+いいねボタンを押すと Supabase 上の値が＋1 され、画面にも反映される
+という流れを念のためチェックしてください。
+
+必要に応じた調整
+追加したいゲームがあれば src/data/games.ts に追記して、ビルドを回してみる
+
+デザインや UI の細かい調整
+Supabase 側で認証リレーションを追加したい・レポートを見たいなどがあれば、そのあたりを拡張
+もし本番デプロイ後や別のフェーズで問題や質問が出てきたら、またお知らせください。お疲れさまでした！
 
 
 

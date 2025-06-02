@@ -1,4 +1,4 @@
-// api/like.ts
+// api/get-count.ts
 import { createClient } from '@supabase/supabase-js';
 
 const supabase = createClient(
@@ -21,40 +21,34 @@ export default async function handler(req: any, res: any) {
 
   try {
     const gameParam = req.query.game;
+    const fieldParam = req.query.field;
+
     const game = Array.isArray(gameParam) ? gameParam[0] : (gameParam || '').toString();
+    const field = Array.isArray(fieldParam) ? fieldParam[0] : (fieldParam || 'views').toString();
 
     if (!game) {
       return res.status(400).json({ error: '"game" query parameter is required' });
     }
+    if (field !== 'views' && field !== 'likes') {
+      return res.status(400).json({ error: '"field" must be either "views" or "likes"' });
+    }
 
-    // ① 現在の likes を取得
-    const { data, error: selErr } = await supabase
+    // page_views テーブルを想定し、"views" か "likes" カラムを取得
+    const { data, error } = await supabase
       .from('page_views')
-      .select('likes')
+      .select(field)
       .eq('game', game)
       .single();
 
-    if (selErr && selErr.code !== 'PGRST116') {
-      console.error('[like] select error:', selErr);
-      return res.status(500).json({ error: selErr.message });
+    if (error && (error.code as string) !== 'PGRST116') {
+      console.error('[get-count] select error:', error);
+      return res.status(500).json({ error: error.message });
     }
 
-    const currentLikes = data ? (data as any).likes : 0;
-    const newLikes = currentLikes + 1;
-
-    // ② upsert して likes を更新
-    const { error: upErr } = await supabase
-      .from('page_views')
-      .upsert({ game, likes: newLikes }, { onConflict: 'game' });
-
-    if (upErr) {
-      console.error('[like] upsert error:', upErr);
-      return res.status(500).json({ error: upErr.message });
-    }
-
-    return res.status(200).json({ ok: true, likes: newLikes });
+    const current = data ? (data as any)[field] : 0;
+    return res.status(200).json({ count: current });
   } catch (e: any) {
-    console.error('[like] exception:', e);
-    return res.status(500).json({ error: e.message });
+    console.error('[get-count] Unexpected error:', e);
+    return res.status(500).json({ error: e.message || 'Internal server error' });
   }
 }
