@@ -41,16 +41,10 @@ async function fetchCount(field: 'views' | 'likes'): Promise<number> {
 }
 
 /**
- * 初回マウント時の処理：views を +1（track）、その後両方を取得
+ * 初回マウント時の処理：views/likes を取得（ビューの +1 は外部で制御）
  */
 async function initStats() {
   try {
-    // (1) track API で views +1
-    await axios.get('/api/track', {
-      params: { game: props.gameId }
-    })
-
-    // (2) 最新の views / likes を取得して反映
     views.value = await fetchCount('views')
     likes.value = await fetchCount('likes')
   } catch (e) {
