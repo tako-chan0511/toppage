@@ -10,7 +10,7 @@
       <p class="header__subtitle">
         ・モダンなVue3とReactで勉強ついでに作ったゲームポータルです。<br>
         ・アーキテクチャ：ゲームのホスティングはGitHub-PagesとVercelを活用しています。<br>
-        ・Toppageは動的ホスティング（サーバレス＋DBのPaas＜supabase＞）<br>
+        ・ToppageはVercel(Vue+Faas)+Supabase(DBのBaas)<br>
         ・フロントとバックエンドのつなぎはaxiosで行っています。<br>
         ・ソースやアーキテクチャはGitHubボタンで確認してください。<br>
         ・機能追加ご要望などはフッターのメールより受け付けています。
