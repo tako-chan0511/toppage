@@ -36,6 +36,6 @@ export default defineConfig(({ command }) => {
       : {}),
 
     // index.html をアセット扱いにして import‐analysis エラーを防ぐ
-    assetsInclude: ['**/*.html'],
+    // assetsInclude: ['**/*.html'],
   }
 })
