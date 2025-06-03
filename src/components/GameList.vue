@@ -19,7 +19,7 @@
 import { defineProps } from 'vue'
 import type { GameInfo } from '@/data/games'
 import GameItem from '@/components/GameItem.vue'
-import GameStats from '@/components/GameStats.vue'  // 追加
+import GameStats from '@/components/GameStats.vue'
 
 const { games } = defineProps<{ games: GameInfo[] }>()
 </script>
