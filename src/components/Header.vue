@@ -8,8 +8,10 @@
         <h1 class="header__title">Game Hub</h1>
       </div>
       <p class="header__subtitle">
-        ・モダンなVue3とReactで勉強がてらに作ったゲームポータルです。<br>
-        ・ゲームのホスティングはGitHub-PagesとVercelを活用しています。<br>
+        ・モダンなVue3とReactで勉強ついでに作ったゲームポータルです。<br>
+        ・アーキテクチャ：ゲームのホスティングはGitHub-PagesとVercelを活用しています。<br>
+        ・Toppageは動的ホスティング（サーバレス＋DBのPaas＜supabase＞）<br>
+        ・フロントとバックエンドのつなぎはaxiosで行っています。<br>
         ・ソースやアーキテクチャはGitHubボタンで確認してください。<br>
         ・機能追加ご要望などはフッターのメールより受け付けています。
       </p>
