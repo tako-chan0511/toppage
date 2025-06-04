@@ -44,19 +44,30 @@ declare const gtag: (...args: any[]) => void
 const { game } = defineProps<{ game: GameInfo }>()
 
 /**
- * クリック時の処理
- * 1) /api/track を叩いて views を +1
- * 2) カスタムイベント "view-updated" を window に dispatch（GameStats 側がこれを受け取る）
- * 3) GA4 イベントを送ったあと、window.open(url) で外部ページを開く
+ * クリック時の処理（iOS Safari 対策版）
+ * 1) ユーザーのタップ直後に空タブを開く（ポップアップブロックを回避）
+ * 2) /api/track を叩いて views を +1
+ * 3) カスタムイベント "view-updated" を dispatch（GameStats が受け取る）
+ * 4) そのタブを外部 URL にリダイレクト
  */
 async function handleClick(url: string) {
   console.log('[GameItem] handleClick start, game.id=', game.id)
+
+  // (1) ユーザー操作として空タブを開いておく
+  const newWindow = window.open('about:blank', '_blank')
+  if (!newWindow) {
+    console.warn('[GameItem] ポップアップがブロックされました。')
+    return
+  }
+
   try {
+    // (2) view カウントアップ API を呼び出す
     const { data } = await axios.get('/api/track', {
       params: { game: game.id }
     })
     console.log('[GameItem] /api/track response:', data)
-    // ここで新しい views 値をイベントとして流す
+
+    // (3) 新しい views 値をイベントとして流す
     window.dispatchEvent(new CustomEvent('view-updated', {
       detail: {
         game: game.id,
@@ -67,23 +78,23 @@ async function handleClick(url: string) {
     console.error('[GameItem] track error:', e)
   }
 
-  // GA4の outbound_click トラッキング (あれば)
+  // (4) GA4 トラッキングを送ったあと、開いておいたタブを実際の URL にリダイレクト
   if (typeof gtag === 'function') {
     ;(window as any).gtag('event', 'outbound_click', {
       event_category: 'Game Hub',
       event_label: url,
       transport_type: 'beacon',
       event_callback: () => {
-        window.open(url, '_blank')
+        newWindow.location.href = url
       }
     })
-    // 念のため 500ms 後に確実に開く
+    // 念のため 500ms 後に確実にリダイレクト
     setTimeout(() => {
-      window.open(url, '_blank')
+      newWindow.location.href = url
     }, 500)
   } else {
-    // GA4 がなければ即座に開く
-    window.open(url, '_blank')
+    // GA4 が無ければ即座にリダイレクト
+    newWindow.location.href = url
   }
 }
 </script>
