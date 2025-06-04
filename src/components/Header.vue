@@ -8,12 +8,13 @@
         <h1 class="header__title">Game Hub</h1>
       </div>
       <p class="header__subtitle">
-        ・モダンなVue3とReactで勉強ついでに作ったゲームポータルです。<br>
-        ・アーキテクチャ：ゲームのホスティングはGitHub-PagesとVercelを活用しています。<br>
-        ・ToppageはVercel(Vue+Faas)+Supabase(DBのBaas)<br>
-        ・フロントとバックエンドのつなぎはaxiosで行っています。<br>
-        ・ソースやアーキテクチャはGitHubボタンで確認してください。<br>
-        ・機能追加ご要望などはフッターのメールより受け付けています。
+       モダンなJavaScriptフレームワークである Vue 3 と React の学習を兼ねて作成したゲームポータルです。<br>
+       ホスティングには GitHub Pages（静的）と Vercel＋Supabase（動的）を併用し、<br>
+       トップページは Vercel（Vue＋FaaS）と Supabase（PostgreSQL の BaaS）で構成しています。<br>
+       フロントエンドとバックエンドの通信には axios を活用し、アクセス数やいいね数といった動的データをリアルタイムで扱える仕組みを構築しました。<br>
+       また、Supabase のリアルタイム機能を利用して、データの変更を即座に反映させることができます。<br>
+       ソースコードやアーキテクチャの詳細は画面下部（フッター）の GitHub ボタンからご覧いただけます。<br>
+       機能追加やご要望がありましたら、フッターに記載されているメールアドレスまでお気軽にお知らせください。
       </p>
     </div>
   </header>
@@ -49,8 +50,8 @@
 .header__subtitle {
   /* 右左を auto にして要素自体を中央寄せ、要素内テキストは左揃え */
   margin: 0.75rem auto 0;
-  max-width: 700px;
-  font-size: 1.5rem;
+  max-width: 1200px;
+  font-size: 1.2rem;
   color: #ddd;
   text-align: left;
 }

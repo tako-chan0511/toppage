@@ -4,7 +4,7 @@
     <div class="footer-content">
       <!-- 1. Toppage 全体の閲覧回数 -->
       <div class="footer-section toppage-views">
-        <strong>Toppage Views:</strong>
+        <strong>参照回数:</strong>
         <span v-if="pageViews === null">Loading…</span>
         <span v-else-if="pageViews < 0">Error</span>
         <span v-else>{{ pageViews }}</span>
@@ -13,7 +13,7 @@
       <!-- プロフィール・メール -->
       <div class="profile">
         <span class="icon">🐙</span>
-        <span class="nickname">たこちゃん</span>
+        <span class="nickname">メール</span>
       </div>
       <div class="contact">
         <a
@@ -21,7 +21,7 @@
           class="email-link"
           title="メールを送信"
         >
-          ✉️
+        ✉️
         </a>
       </div>
 
@@ -30,7 +30,7 @@
         <!-- 自己紹介動画 -->
         <div class="link-item">
           <button @click="onClickItem(GAME_INTRO)">
-            自己紹介動画 ▶
+            自己紹介 ▶
           </button>
           <span class="stats">
             👁‍🗨
@@ -49,7 +49,7 @@
         <!-- チャレンジ動画 -->
         <div class="link-item">
           <button @click="onClickItem(GAME_CHALLENGE)">
-            64歳ロートルおじさんの挑戦動画 ▶
+            おじさんの挑戦 ▶
           </button>
           <span class="stats">
             👁‍🗨
@@ -68,7 +68,7 @@
         <!-- GitHub リンク -->
         <div class="link-item">
           <button @click="onClickItem(GAME_GITHUB)">
-            GitHub 📂
+            Toppage GitHub 📂
           </button>
           <span class="stats">
             👁‍🗨
@@ -86,7 +86,7 @@
 
       <!-- コピーライト -->
       <div class="copyright">
-        © {{ new Date().getFullYear() }} たこちゃん All Rights Reserved.
+        © {{ new Date().getFullYear() }} 🐙たこちゃん All Rights Reserved.
       </div>
     </div>
   </footer>
