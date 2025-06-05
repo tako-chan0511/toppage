@@ -89,7 +89,14 @@ export const games: GameInfo[] = [
     demoUrl: '',
     repo: 'tako-chan0511/sq2',
   },
-
+  {
+    id: 'slidpuzzle-vue3',
+    title: '🔲 パズルスライドＮ×Ｍ',
+    description: 'Vue3 + Composition API で実装。スマホスワイプ対応。',
+    url: 'https://tako-chan0511.github.io/slidepuzzle/',
+    demoUrl: '',
+    repo: 'tako-chan0511/slidepuzzle',
+  },
 
   // …他のゲームも同様に
 ];
