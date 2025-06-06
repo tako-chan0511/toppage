@@ -1,4 +1,5 @@
 // api/get-count.ts
+import 'dotenv/config';
 import { createClient } from '@supabase/supabase-js';
 
 const supabase = createClient(

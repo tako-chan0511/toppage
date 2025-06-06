@@ -1,4 +1,4 @@
-// vite.config.ts
+// vue/toppage/vite.config.ts
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
@@ -14,17 +14,17 @@ export default defineConfig(({ command }) => {
         '@': path.resolve(__dirname, 'src'),
       },
     },
+    // index.html のような .html ファイルをアセットとして扱う
+    assetsInclude: ['**/*.html'],
 
-    // 開発モードのときだけ server 設定を追加
+    // “serve” モード (npm run dev / npx vercel dev 時) のみ server 設定
     ...(isServe
       ? {
           server: {
-            // Vercel Dev（npx vercel dev）が渡す PORT があればそちらを使い、
-            // なければローカル開発のデフォルト 5173 を使う
-            port: Number(process.env.PORT) || 5173,
+            // 常に 5173 番を使う
+            port: 5173,
             strictPort: true,
-
-            // ローカル開発中は /api → http://localhost:3000/api へ転送
+            // /api → http://localhost:3000 に常時 proxy
             proxy: {
               '/api': {
                 target: 'http://localhost:3000',
@@ -34,8 +34,5 @@ export default defineConfig(({ command }) => {
           },
         }
       : {}),
-
-    // index.html をアセット扱いにして import‐analysis エラーを防ぐ
-    // assetsInclude: ['**/*.html'],
   }
 })
