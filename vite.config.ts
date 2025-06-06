@@ -15,7 +15,7 @@ export default defineConfig(({ command }) => {
       },
     },
     // index.html のような .html ファイルをアセットとして扱う
-    assetsInclude: ['**/*.html'],
+    // assetsInclude: ['**/*.html'],
 
     // “serve” モード (npm run dev / npx vercel dev 時) のみ server 設定
     ...(isServe
