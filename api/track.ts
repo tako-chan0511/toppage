@@ -1,5 +1,5 @@
 // api/track.ts
-import 'dotenv/config';
+// import 'dotenv/config';
 import { createClient } from '@supabase/supabase-js';
 
 const supabase = createClient(
