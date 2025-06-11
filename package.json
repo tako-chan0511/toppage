@@ -2,7 +2,6 @@
   "name": "toppage",
   "private": true,
   "version": "0.0.0",
- 
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
@@ -21,6 +20,7 @@
     "@vercel/node": "^5.2.0",
     "@vitejs/plugin-vue": "^5.2.3",
     "@vue/tsconfig": "^0.7.0",
+    "concurrently": "^9.1.2",
     "gh-pages": "^6.3.0",
     "typescript": "~5.8.3",
     "vite": "^6.3.5",

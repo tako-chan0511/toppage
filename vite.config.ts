@@ -10,26 +10,29 @@ export default defineConfig(({ command }) => {
     base: '/',
     plugins: [vue()],
     resolve: {
-      alias: {
-        '@': path.resolve(__dirname, 'src'),
-      },
+      alias: { '@': path.resolve(__dirname, 'src') },
     },
-    // index.html のような .html ファイルをアセットとして扱う
-    // assetsInclude: ['**/*.html'],
-
-    // “serve” モード (npm run dev / npx vercel dev 時) のみ server 設定
+    assetsInclude: ['**/*.html'],
     ...(isServe
       ? {
           server: {
-            // 常に 5173 番を使う
-            port: 5173,
+            // Vercel が渡す PORT を優先、それ以外は 5173
+            port: Number(process.env.PORT) || 5173,
             strictPort: true,
-            // /api → http://localhost:3000 に常時 proxy
+            // ローカルネットワークからもアクセス可に
+            host: true,
+            // API 呼び出しをバックエンドにプロキシ
             proxy: {
               '/api': {
                 target: 'http://localhost:3000',
                 changeOrigin: true,
               },
+            },
+            // HMR を確実に動かす設定
+            hmr: {
+              protocol: 'ws',
+              host: process.env.HOST || 'localhost',
+              port: Number(process.env.PORT) || 5173,
             },
           },
         }

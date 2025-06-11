@@ -105,6 +105,14 @@ export const games: GameInfo[] = [
     demoUrl: '',
     repo: 'tako-chan0511/matchinggame',
   },
+  {
+    id: 'sudoku',
+    title: '🔲 数独（ナンプレ、トレーニング付）',
+    description: 'Vue3 + Composition API で実装。スマホスワイプ対応。',
+    url: 'https://tako-chan0511.github.io/sudoku/',
+    demoUrl: '',
+    repo: 'tako-chan0511/sudoku',
+  },
 
   // …他のゲームも同様に
 ];
