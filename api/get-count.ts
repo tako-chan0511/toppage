@@ -2,6 +2,11 @@
 import 'dotenv/config';
 import { createClient } from '@supabase/supabase-js';
 
+console.log('▶️ MODE=', process.env.NODE_ENV);
+console.log('▶️ SUPABASE_URL=', process.env.SUPABASE_URL);
+console.log('▶️ SUPABASE_KEY=', process.env.SUPABASE_KEY);
+console.log('▶️ SERVICE_ROLE_KEY=', process.env.SUPABASE_SERVICE_ROLE_KEY);
+
 const supabase = createClient(
   process.env.SUPABASE_URL!,
   process.env.SUPABASE_KEY!
