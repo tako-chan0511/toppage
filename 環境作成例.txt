@@ -1,6 +1,6 @@
 GoogleAnalytics（GA4）でデータ収集
 
-■ストリームの詳細&&&
+■ストリームの詳細&&&&
 ストリーム名：ゲームハブ
 ストリーム URL：https://tako-chan0511.github.io/toppage/
 ストリーム ID：11279822421
