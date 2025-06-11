@@ -1,5 +1,5 @@
 // api/get-count.ts
-import 'dotenv/config';
+// import 'dotenv/config';
 import { createClient } from '@supabase/supabase-js';
 
 console.log('▶️ MODE=', process.env.NODE_ENV);
