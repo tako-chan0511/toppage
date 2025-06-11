@@ -12,7 +12,7 @@ export default defineConfig(({ command }) => {
     resolve: {
       alias: { '@': path.resolve(__dirname, 'src') },
     },
-    assetsInclude: ['**/*.html'],
+    // assetsInclude: ['**/*.html'],
     ...(isServe
       ? {
           server: {
