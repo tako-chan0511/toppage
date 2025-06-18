@@ -291,7 +291,7 @@ api/**/*.ts が Node ランタイムにトランスパイルされる
 
 環境変数は Vercel ダッシュボードで設定済み → process.env.SUPABASE_URL / process.env.SUPABASE_KEY が使われる
 
-GitHub Pages との関係
+GitHub Pages との関係  
 GitHub Pages は「静的ファイルをホストする」だけの機能
 
 npm run build:gh → vite build --base /toppage/ で dist/ を生成
