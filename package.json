@@ -8,7 +8,8 @@
     "build:gh": "vue-tsc -b && vite build --base /toppage/",
     "preview": "vite preview",
     "predeploy": "npm run build:gh",
-    "deploy": "gh-pages -d dist"
+    "deploy": "echo 'エラー: このコマンドはGitHub Pages専用です。Vercelへのデプロイは git push を使用してください。' && exit 1"
+
   },
   "dependencies": {
     "axios": "^1.9.0",
