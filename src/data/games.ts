@@ -92,7 +92,7 @@ export const games: GameInfo[] = [
   {
     id: 'slidpuzzle-vue3',
     title: '🔲 パズルスライドＮ×Ｍ',
-    description: 'Vue3 + Composition API で実装。スマホスワイプ対応。',
+    description: 'PWA対応済：Vue3 + Composition API で実装。スマホスワイプ対応。',
     url: 'https://tako-chan0511.github.io/slidepuzzle/',
     demoUrl: '',
     repo: 'tako-chan0511/slidepuzzle',
@@ -100,7 +100,7 @@ export const games: GameInfo[] = [
   {
     id: 'matchinggame-vue3',
     title: '🔲 神経衰弱Ｎ×Ｍ',
-    description: 'Vue3 + Composition API で実装。スマホスワイプ対応。',
+    description: 'PWA対応済：Vue3 + Composition API で実装。スマホスワイプ対応。',
     url: 'https://tako-chan0511.github.io/matchinggame/',
     demoUrl: '',
     repo: 'tako-chan0511/matchinggame',
@@ -108,7 +108,7 @@ export const games: GameInfo[] = [
   {
     id: 'sudoku',
     title: '🔲 数独（ナンプレ、トレーニング付）',
-    description: 'Vue3 + Composition API で実装。スマホスワイプ対応。',
+    description: 'PWA対応済：Vue3 + Composition API で実装。スマホスワイプ対応。',
     url: 'https://tako-chan0511.github.io/sudoku/',
     demoUrl: '',
     repo: 'tako-chan0511/sudoku',
