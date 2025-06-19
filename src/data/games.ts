@@ -20,7 +20,7 @@ export const games: GameInfo[] = [
   {
     id: 'Hit&Blow-Next.js-vercel',
     title: '🎯 HitBlow (Next.js-Vercel)',
-    description: 'Next.js + Canvas で書いたHit&Blow、スマホ対応。Vercelホスティング',
+    description: 'PWA対応済：Next.js + Canvas で書いたHit&Blow、スマホ対応。Vercelホスティング',
     url: 'https://hitblow-next.vercel.app/',
     demoUrl: 'https://drive.google.com/file/d/1sC0ibWtbrWOFf5E_smbhLwJlOwELRaiC/view?usp=drive_link',
     repo: 'tako-chan0511/hitblow-next',
@@ -113,6 +113,13 @@ export const games: GameInfo[] = [
     demoUrl: '',
     repo: 'tako-chan0511/sudoku',
   },
-
+  {
+    id: 'kakezan',
+    title: '🔲 二桁の掛け算アプリ',
+    description: 'PWA対応済：Vue＋Vite＋Typscriptで実装。スマホスワイプ対応。',
+    url: 'https://tako-chan0511.github.io/kakezan/',
+    demoUrl: '',
+    repo: 'tako-chan0511/kakezan',
+  },
   // …他のゲームも同様に
 ];
