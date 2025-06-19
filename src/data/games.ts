@@ -12,7 +12,7 @@ export const games: GameInfo[] = [
     {
     id: 'Hit&Blow-vue-vercel',
     title: '🔢 HitBlow (Vue3-Vercel)',
-    description: 'Vue3 + Composition API で実装。スマホ対応。Vercelホスティング',
+    description: 'PWA対応済：Vue3 + Composition API で実装。スマホ対応。Vercelホスティング',
     url: 'https://my-hitblow-game.vercel.app/',
     demoUrl: 'https://drive.google.com/file/d/1uObWehEEmGL-AdIiG63VRY3qViXoz-LW/view?usp=drive_link',
     repo: 'tako-chan0511/my-hitblow-game',
