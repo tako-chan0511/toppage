@@ -121,5 +121,13 @@ export const games: GameInfo[] = [
     demoUrl: '',
     repo: 'tako-chan0511/kakezan',
   },
+   {
+    id: 'Typing Fall',
+    title: '🔲 タイピングの練習アプリ',
+    description: 'PWA対応済：Vue＋Vite＋Typscriptで実装。スマホスワイプ対応。',
+    url: 'https://tako-chan0511.github.io/typingfall/',
+    demoUrl: '',
+    repo: 'tako-chan0511/typingfall',
+  },
   // …他のゲームも同様に
 ];
