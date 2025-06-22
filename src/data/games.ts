@@ -17,14 +17,23 @@ export const games: GameInfo[] = [
     demoUrl: 'https://drive.google.com/file/d/1uObWehEEmGL-AdIiG63VRY3qViXoz-LW/view?usp=drive_link',
     repo: 'tako-chan0511/my-hitblow-game',
   },
-  {
-    id: 'Hit&Blow-Next.js-vercel',
-    title: '🎯 HitBlow (Next.js-Vercel)',
-    description: 'PWA対応済：Next.js + Canvas で書いたHit&Blow、スマホ対応。Vercelホスティング',
-    url: 'https://hitblow-next.vercel.app/',
-    demoUrl: 'https://drive.google.com/file/d/1sC0ibWtbrWOFf5E_smbhLwJlOwELRaiC/view?usp=drive_link',
-    repo: 'tako-chan0511/hitblow-next',
+   {
+    id: 'Typing Fall',
+    title: '🔲 タイピングの練習アプリ',
+    description: 'PWA対応済：Vue＋Vite＋Typscriptで実装。スマホスワイプ対応。',
+    url: 'https://tako-chan0511.github.io/typingfall/',
+    demoUrl: '',
+    repo: 'tako-chan0511/typingfall',
   },
+   {
+    id: 'sudoku',
+    title: '🔲 数独（ナンプレ、トレーニング付）',
+    description: 'PWA対応済：Vue3 + Composition API で実装。スマホスワイプ対応。',
+    url: 'https://tako-chan0511.github.io/sudoku/',
+    demoUrl: '',
+    repo: 'tako-chan0511/sudoku',
+  },
+  
     {
     id: 'Othello-vue',
     title: '⚫⚪ オセロ (Vue3-GithubPages)',
@@ -49,14 +58,7 @@ export const games: GameInfo[] = [
     demoUrl: 'https://drive.google.com/file/d/1nxwCwWmRVO_pgZrGHYGqGtrnkH6KYeHP/view?usp=drive_link',
     repo: 'tako-chan0511/Minesweeper',
   },
-  {
-    id: 'connect4-vue',
-    title: '🔴🟡 立体4並べ (Vue3-GithubPages)',
-    description: 'PWA対応済：Vue3 + Composition API で実装。スマホ対応。',
-    url: 'https://tako-chan0511.github.io/Connect4/',
-    demoUrl: 'https://drive.google.com/file/d/1SWi0w0t2lVe0Haa5fu5ybc4Em1IG8eTw/view?usp=drive_link',
-    repo: 'tako-chan0511/connect4',
-  },
+  
   {
     id: 'tetris-vue',
     title: '🧩 テトリス (Vue3-GithubPages)',
@@ -105,14 +107,7 @@ export const games: GameInfo[] = [
     demoUrl: '',
     repo: 'tako-chan0511/matchinggame',
   },
-  {
-    id: 'sudoku',
-    title: '🔲 数独（ナンプレ、トレーニング付）',
-    description: 'PWA対応済：Vue3 + Composition API で実装。スマホスワイプ対応。',
-    url: 'https://tako-chan0511.github.io/sudoku/',
-    demoUrl: '',
-    repo: 'tako-chan0511/sudoku',
-  },
+ 
   {
     id: 'kakezan',
     title: '🔲 二桁の掛け算アプリ',
@@ -121,13 +116,22 @@ export const games: GameInfo[] = [
     demoUrl: '',
     repo: 'tako-chan0511/kakezan',
   },
-   {
-    id: 'Typing Fall',
-    title: '🔲 タイピングの練習アプリ',
-    description: 'PWA対応済：Vue＋Vite＋Typscriptで実装。スマホスワイプ対応。',
-    url: 'https://tako-chan0511.github.io/typingfall/',
-    demoUrl: '',
-    repo: 'tako-chan0511/typingfall',
+  {
+    id: 'connect4-vue',
+    title: '🔴🟡 立体4並べ (Vue3-GithubPages)',
+    description: 'PWA対応済：Vue3 + Composition API で実装。スマホ対応。',
+    url: 'https://tako-chan0511.github.io/Connect4/',
+    demoUrl: 'https://drive.google.com/file/d/1SWi0w0t2lVe0Haa5fu5ybc4Em1IG8eTw/view?usp=drive_link',
+    repo: 'tako-chan0511/connect4',
   },
+  {
+    id: 'Hit&Blow-Next.js-vercel',
+    title: '🎯 HitBlow (Next.js-Vercel)',
+    description: 'PWA対応済：Next.js + Canvas で書いたHit&Blow、スマホ対応。Vercelホスティング',
+    url: 'https://hitblow-next.vercel.app/',
+    demoUrl: 'https://drive.google.com/file/d/1sC0ibWtbrWOFf5E_smbhLwJlOwELRaiC/view?usp=drive_link',
+    repo: 'tako-chan0511/hitblow-next',
+  },
+  
   // …他のゲームも同様に
 ];
