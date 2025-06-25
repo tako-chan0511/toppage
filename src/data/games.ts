@@ -19,6 +19,14 @@ export const games: GameInfo[] = [
       "https://drive.google.com/file/d/1uObWehEEmGL-AdIiG63VRY3qViXoz-LW/view?usp=drive_link",
     repo: "tako-chan0511/my-hitblow-game",
   },
+    {
+    id: "cssvisualizer",
+    title: "🔲 CSS初心者向け練習アプリ",
+    description: "親コンテナ・子要素（BOX,円,TEXT,Image,Button:Vue＋Vite＋Typscriptで実装。",
+    url: "https://tako-chan0511.github.io/cssvisualizer/",
+    demoUrl: "",
+    repo: "tako-chan0511/cssvisualizer",
+  },
   {
     id: "Typing Fall",
     title: "🔲 タイピングの練習アプリ",
