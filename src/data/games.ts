@@ -22,7 +22,7 @@ export const games: GameInfo[] = [
     {
     id: "cssvisualizer",
     title: "🔲 CSS初心者向け練習アプリ",
-    description: "親コンテナ・子要素（BOX,円,TEXT,Image,Button:Vue＋Vite＋Typscriptで実装。",
+    description: "PWA対応済：親コンテナ・子要素（BOX,円,TEXT,Image,Button:Vue＋Vite＋Typscriptで実装。",
     url: "https://tako-chan0511.github.io/cssvisualizer/",
     demoUrl: "",
     repo: "tako-chan0511/cssvisualizer",
