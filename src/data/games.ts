@@ -22,7 +22,7 @@ export const games: GameInfo[] = [
     {
     id: "luckylotto",
     title: "🔲 ナンバーズ4＆ロト6シミュレーターアプリ",
-    description: "PWA対応未：Piniaストア永続化、Router、NaiveUI活用、Vue＋Vite＋Typscriptで実装。",
+    description: "PWA対応済：Piniaストア永続化、Router、NaiveUI活用、Vue＋Vite＋Typscriptで実装。",
     url: "https://tako-chan0511.github.io/luckylotto/",
     demoUrl: "",
     repo: "tako-chan0511/luckylotto",
