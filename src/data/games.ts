@@ -19,18 +19,29 @@ export const games: GameInfo[] = [
       "https://drive.google.com/file/d/1uObWehEEmGL-AdIiG63VRY3qViXoz-LW/view?usp=drive_link",
     repo: "tako-chan0511/my-hitblow-game",
   },
-    {
+  {
     id: "luckylotto",
     title: "🔲 ナンバーズ4＆ロト6シミュレーターアプリ",
-    description: "PWA対応済：Piniaストア永続化、Router、NaiveUI活用、Vue＋Vite＋Typscriptで実装。",
+    description:
+      "PWA対応済：Piniaストア永続化、Router、NaiveUI活用、Vue＋Vite＋Typscriptで実装。",
     url: "https://tako-chan0511.github.io/luckylotto/",
     demoUrl: "",
     repo: "tako-chan0511/luckylotto",
   },
-    {
+  {
+    id: "melodycanvas",
+    title: "🔲 Melody Canvasアプリ",
+    description:
+      "PWA対応未：Piniaストア永続化,tone.js,VexFlow活用、Vue＋Vite＋Typscriptで実装。",
+    url: "https://tako-chan0511.github.io/melodycanvas/",
+    demoUrl: "",
+    repo: "tako-chan0511/melodycanvas",
+  },
+  {
     id: "cssvisualizer",
     title: "🔲 CSS初心者向け練習アプリ",
-    description: "PWA対応済：親コンテナ・子要素（BOX,円,TEXT,Image,Button:Vue＋Vite＋Typscriptで実装。",
+    description:
+      "PWA対応済：親コンテナ・子要素（BOX,円,TEXT,Image,Button:Vue＋Vite＋Typscriptで実装。",
     url: "https://tako-chan0511.github.io/cssvisualizer/",
     demoUrl: "",
     repo: "tako-chan0511/cssvisualizer",
