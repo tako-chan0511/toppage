@@ -24,7 +24,7 @@ export const games: GameInfo[] = [
     title: "🔲 天気予報アプリ",
     description:
       "PWA対応済：Leaflet,OpenWeatherMAP API,LocationIQ API,tone.js,VexFlow活用、Vue＋Vite＋Typscriptで実装。",
-    url: "https://tako-chan0511.github.io/weather-app/",
+    url: "https://hara0511weather-app.vercel.app//",
     demoUrl: "",
     repo: "tako-chan0511/weather-app",
   },
