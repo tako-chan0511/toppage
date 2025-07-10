@@ -20,6 +20,15 @@ export const games: GameInfo[] = [
     repo: "tako-chan0511/my-hitblow-game",
   },
    {
+    id: "bookmark-manager",
+    title: "🔲 ブックマーク管理アプリ",
+    description:
+      "PWA対応済：supabaseクライアント(postgreSQL）+Vercel、Vue＋Vite＋Typscriptで実装。",
+    url: "https://hara0511bookmark-manager.vercel.app/",
+    demoUrl: "",
+    repo: "tako-chan0511/bookmark-manager",
+  },
+   {
     id: "weather-app",
     title: "🔲 天気予報アプリ",
     description:
