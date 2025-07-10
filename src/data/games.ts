@@ -21,7 +21,7 @@ export const games: GameInfo[] = [
   },
    {
     id: "bookmark-manager",
-    title: "🔲 ブックマーク管理アプリ",
+    title: "😎 ブックマーク管理アプリ",
     description:
       "PWA対応済：supabaseクライアント(postgreSQL）+Vercel、Vue＋Vite＋Typscriptで実装。",
     url: "https://hara0511bookmark-manager.vercel.app/",
