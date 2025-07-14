@@ -20,6 +20,24 @@ export const games: GameInfo[] = [
     repo: "tako-chan0511/my-hitblow-game",
   },
    {
+    id: "jp-politics",
+    title: "👩‍🌾 AI政権比較アプリ",
+    description:
+      "PWA対応未：Vercel＋Upstash（Serverless Redis活用）、Vue＋Vite＋Typscriptで実装。",
+    url: "https://hara0511jp-politics.vercel.app/",
+    demoUrl: "",
+    repo: "tako-chan0511/jp-politics",
+  },
+   {
+    id: "my-recipes",
+    title: "🧔‍♀️ 料理レシピアプリ",
+    description:
+      "PWA対応未：Vercel（Serverless API活用）、Vue＋Vite＋Typscriptで実装。",
+    url: "https://hara0511my-recipes.vercel.app/",
+    demoUrl: "",
+    repo: "tako-chan0511/my-recipes",
+  },
+   {
     id: "bookmark-manager",
     title: "😎 ブックマーク管理アプリ",
     description:
