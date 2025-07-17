@@ -19,6 +19,42 @@ export const games: GameInfo[] = [
       "https://drive.google.com/file/d/1uObWehEEmGL-AdIiG63VRY3qViXoz-LW/view?usp=drive_link",
     repo: "tako-chan0511/my-hitblow-game",
   },
+  {
+    id: "ai-stat-analist",
+    title: "😎 AI統計アナリスト",
+    description:
+      "PWA対応未：Vercel（e-statとgemini AIのAPI活用）、Vue＋Vite＋Typscriptで実装。",
+    url: "https://hara0511ai-stat-analist.vercel.app/",
+    demoUrl: "",
+    repo: "tako-chan0511/ai-stat-analist",
+  },
+   {
+    id: "jp-politics",
+    title: "👩‍🌾 AI政権比較アプリ",
+    description:
+      "PWA対応未：Vercel＋Upstash（Serverless Redis活用）、Vue＋Vite＋Typscriptで実装。",
+    url: "https://hara0511jp-politics.vercel.app/",
+    demoUrl: "",
+    repo: "tako-chan0511/jp-politics",
+  },
+   {
+    id: "my-recipes",
+    title: "🧔‍♀️ 料理レシピアプリ",
+    description:
+      "PWA対応未：Vercel（Serverless API活用）、Vue＋Vite＋Typscriptで実装。",
+    url: "https://hara0511my-recipes.vercel.app/",
+    demoUrl: "",
+    repo: "tako-chan0511/my-recipes",
+  },
+   {
+    id: "bookmark-manager",
+    title: "😎 ブックマーク管理アプリ",
+    description:
+      "PWA対応済：supabaseクライアント(postgreSQL）+Vercel、Vue＋Vite＋Typscriptで実装。",
+    url: "https://hara0511bookmark-manager.vercel.app/",
+    demoUrl: "",
+    repo: "tako-chan0511/bookmark-manager",
+  },
    {
     id: "weather-app",
     title: "🔲 天気予報アプリ",
