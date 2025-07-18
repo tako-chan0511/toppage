@@ -20,6 +20,15 @@ export const games: GameInfo[] = [
     repo: "tako-chan0511/my-hitblow-game",
   },
   {
+    id: "my-daily-digest",
+    title: "😎 AIニュースダイジェスト",
+    description:
+      "PWA対応未：Vercel（GNewsとgemini AIのAPI活用）、Vue＋Vite＋Typscriptで実装。",
+    url: "https://hara0511my-daily-digest.vercel.app/",
+    demoUrl: "",
+    repo: "tako-chan0511/my-daily-digest",
+  },
+  {
     id: "ai-stat-analist",
     title: "😎 AI統計アナリスト",
     description:
