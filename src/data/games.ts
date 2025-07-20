@@ -33,9 +33,9 @@ export const games: GameInfo[] = [
     title: "😎 AI統計アナリスト",
     description:
       "PWA対応未：Vercel（e-statとgemini AIのAPI活用）、Vue＋Vite＋Typscriptで実装。",
-    url: "https://hara0511ai-stat-analist.vercel.app/",
+    url: "https://hara0511ai-stat-analyst.vercel.app/",
     demoUrl: "",
-    repo: "tako-chan0511/ai-stat-analist",
+    repo: "tako-chan0511/ai-stat-analyst",
   },
    {
     id: "jp-politics",
