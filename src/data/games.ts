@@ -10,6 +10,16 @@ export interface GameInfo {
 
 export const games: GameInfo[] = [
   {
+    id: "Skilltrail",
+    title: "😎 作成アプリスキル一覧",
+    description:
+      "PWA対応未：Vercel、Vue＋Vite＋Typscriptで実装。",
+    url: "https://hara0511skilltrail.vercel.app/",
+    demoUrl:
+      "",
+    repo: "tako-chan0511/skilltrail",
+  },
+  {
     id: "Hit&Blow-vue-vercel",
     title: "🔢 HitBlow (Vue3-Vercel)",
     description:
@@ -18,6 +28,16 @@ export const games: GameInfo[] = [
     demoUrl:
       "https://drive.google.com/file/d/1uObWehEEmGL-AdIiG63VRY3qViXoz-LW/view?usp=drive_link",
     repo: "tako-chan0511/my-hitblow-game",
+  },
+  {
+    id: "my-market-analyst",
+    title: "😎 AIマーケットアナリスト",
+    description:
+      "PWA対応未：Vercel（GNewsとgemini AIのAPI活用）、Vue＋Vite＋Typscriptで実装。",
+    url: "https://hara0511my-market-analyst.vercel.app/",
+    demoUrl:
+      "",
+    repo: "tako-chan0511/my-market-analyst",
   },
   {
     id: "my-daily-digest",
