@@ -10,6 +10,16 @@ export interface GameInfo {
 
 export const games: GameInfo[] = [
   {
+    id: "vive-with-gemini",
+    title: "😎 Vive With Gemini",
+    description:
+      "PWA対応未：Vercel、Vue＋Vite＋Typscriptで実装。",
+    url: "https://hara0511vive-with-gemini.vercel.app/",
+    demoUrl:
+      "",
+    repo: "tako-chan0511/vive-with-gemini",
+  },
+  {
     id: "Skilltrail",
     title: "😎 作成アプリスキル一覧",
     description:
