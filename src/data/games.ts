@@ -30,6 +30,24 @@ export const games: GameInfo[] = [
     repo: "tako-chan0511/skilltrail",
   },
   {
+    id: "Minesweeper-vue",
+    title: "💣 マインスイーパ (Vue3-GithubPages)",
+    description: "PWA対応済：Vue3 + Composition API で実装。スマホ対応。",
+    url: "https://tako-chan0511.github.io/Minesweeper/",
+    demoUrl:
+      "https://drive.google.com/file/d/1nxwCwWmRVO_pgZrGHYGqGtrnkH6KYeHP/view?usp=drive_link",
+    repo: "tako-chan0511/Minesweeper",
+  },
+  {
+    id: "Minesweeper-vue",
+    title: " 動物将棋(Vue3-GithubPages)",
+    description: "PWA対応未",
+    url: "https://tako-chan0511.github.io/vue-animal-shogi/",
+    demoUrl:
+      "",
+    repo: "tako-chan0511/vue-animal-shogi",
+  },
+  {
     id: "Hit&Blow-vue-vercel",
     title: "🔢 HitBlow (Vue3-Vercel)",
     description:
@@ -177,15 +195,7 @@ export const games: GameInfo[] = [
     repo: "tako-chan0511/matchinggame",
   },
 
-  {
-    id: "Minesweeper-vue",
-    title: "💣 マインスイーパ (Vue3-GithubPages)",
-    description: "PWA対応済：Vue3 + Composition API で実装。スマホ対応。",
-    url: "https://tako-chan0511.github.io/Minesweeper/",
-    demoUrl:
-      "https://drive.google.com/file/d/1nxwCwWmRVO_pgZrGHYGqGtrnkH6KYeHP/view?usp=drive_link",
-    repo: "tako-chan0511/Minesweeper",
-  },
+  
 
   {
     id: "tetris-vue",
