@@ -66,43 +66,7 @@ export const games: GameInfo[] = [
       "https://drive.google.com/file/d/1uObWehEEmGL-AdIiG63VRY3qViXoz-LW/view?usp=drive_link",
     repo: "tako-chan0511/my-hitblow-game",
   },
-  {
-    id: "my-market-analyst",
-    title: "😎 AIマーケットアナリスト",
-    description:
-      "PWA対応未：Vercel（GNewsとgemini AIのAPI活用）、Vue＋Vite＋Typscriptで実装。",
-    url: "https://hara0511my-market-analyst.vercel.app/",
-    demoUrl:
-      "",
-    repo: "tako-chan0511/my-market-analyst",
-  },
-  {
-    id: "my-daily-digest",
-    title: "😎 AIニュースダイジェスト",
-    description:
-      "PWA対応未：Vercel（GNewsとgemini AIのAPI活用）、Vue＋Vite＋Typscriptで実装。",
-    url: "https://hara0511my-daily-digest.vercel.app/",
-    demoUrl: "",
-    repo: "tako-chan0511/my-daily-digest",
-  },
-  {
-    id: "ai-stat-analist",
-    title: "😎 AI統計アナリスト",
-    description:
-      "PWA対応未：Vercel（e-statとgemini AIのAPI活用）、Vue＋Vite＋Typscriptで実装。",
-    url: "https://hara0511ai-stat-analyst.vercel.app/",
-    demoUrl: "",
-    repo: "tako-chan0511/ai-stat-analyst",
-  },
-   {
-    id: "jp-politics",
-    title: "👩‍🌾 AI政権比較アプリ",
-    description:
-      "PWA対応未：Vercel＋Upstash（Serverless Redis活用）、Vue＋Vite＋Typscriptで実装。",
-    url: "https://hara0511jp-politics.vercel.app/",
-    demoUrl: "",
-    repo: "tako-chan0511/jp-politics",
-  },
+
    {
     id: "my-recipes",
     title: "🧔‍♀️ 料理レシピアプリ",
@@ -233,6 +197,43 @@ export const games: GameInfo[] = [
     demoUrl:
       "https://drive.google.com/file/d/1SRR_kq2U7pKwWPEBf5kmql7IYfdpSWaa/view?usp=drive_link",
     repo: "tako-chan0511/breakout",
+  },
+    {
+    id: "my-market-analyst",
+    title: "😎 AIマーケットアナリスト",
+    description:
+      "PWA対応未：Vercel（GNewsとgemini AIのAPI活用）、Vue＋Vite＋Typscriptで実装。",
+    url: "https://hara0511my-market-analyst.vercel.app/",
+    demoUrl:
+      "",
+    repo: "tako-chan0511/my-market-analyst",
+  },
+  {
+    id: "my-daily-digest",
+    title: "😎 AIニュースダイジェスト",
+    description:
+      "PWA対応未：Vercel（GNewsとgemini AIのAPI活用）、Vue＋Vite＋Typscriptで実装。",
+    url: "https://hara0511my-daily-digest.vercel.app/",
+    demoUrl: "",
+    repo: "tako-chan0511/my-daily-digest",
+  },
+  {
+    id: "ai-stat-analist",
+    title: "😎 AI統計アナリスト",
+    description:
+      "PWA対応未：Vercel（e-statとgemini AIのAPI活用）、Vue＋Vite＋Typscriptで実装。",
+    url: "https://hara0511ai-stat-analyst.vercel.app/",
+    demoUrl: "",
+    repo: "tako-chan0511/ai-stat-analyst",
+  },
+   {
+    id: "jp-politics",
+    title: "👩‍🌾 AI政権比較アプリ",
+    description:
+      "PWA対応未：Vercel＋Upstash（Serverless Redis活用）、Vue＋Vite＋Typscriptで実装。",
+    url: "https://hara0511jp-politics.vercel.app/",
+    demoUrl: "",
+    repo: "tako-chan0511/jp-politics",
   },
   {
     id: "squared-streamlit(python)",
