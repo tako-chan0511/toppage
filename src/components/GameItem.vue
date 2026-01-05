@@ -6,30 +6,26 @@
     <div class="links">
       <!-- Play -->
       <a
-        :href="game.url"
-        target="_blank"
-        rel="noopener"
-        @click.prevent="trackAndGo(game.url)"
+        href="#"
+        @click.prevent="handleClick(game.url)"
       >
         ▶ Play
       </a>
+
       <!-- Demo -->
       <a
         v-if="game.demoUrl"
-        :href="game.demoUrl"
-        target="_blank"
-        rel="noopener"
-        @click.prevent="trackAndGo(game.demoUrl!)"
+        href="#"
+        @click.prevent="handleClick(game.demoUrl!)"
       >
         📺 Demo
       </a>
+
       <!-- Repo -->
       <a
         v-if="game.repo"
-        :href="`https://github.com/${game.repo}`"
-        target="_blank"
-        rel="noopener"
-        @click.prevent="trackAndGo(`https://github.com/${game.repo}`)"
+        href="#"
+        @click.prevent="handleClick(`https://github.com/${game.repo}`)"
       >
         📂 GitHub
       </a>
@@ -38,34 +34,67 @@
 </template>
 
 <script lang="ts" setup>
-// gtag をグローバル変数として認識
-declare const gtag: (...args: any[]) => void
-
+import axios from 'axios'
 import type { GameInfo } from '@/data/games'
 import { defineProps } from 'vue'
 
-// props から game を直接取り出し
+// gtag をグローバル変数として認識
+declare const gtag: (...args: any[]) => void
+
 const { game } = defineProps<{ game: GameInfo }>()
 
 /**
- * 外部リンククリックを GA4 に送信してから遷移するヘルパー
+ * クリック時の処理（iOS Safari 対策版）
+ * 1) ユーザーのタップ直後に空タブを開く（ポップアップブロックを回避）
+ * 2) /api/track を叩いて views を +1
+ * 3) カスタムイベント "view-updated" を dispatch（GameStats が受け取る）
+ * 4) そのタブを外部 URL にリダイレクト
  */
-function trackAndGo(url: string) {
+async function handleClick(url: string) {
+  console.log('[GameItem] handleClick start, game.id=', game.id)
+
+  // (1) ユーザー操作として空タブを開いておく
+  const newWindow = window.open('about:blank', '_blank')
+  if (!newWindow) {
+    console.warn('[GameItem] ポップアップがブロックされました。')
+    return
+  }
+
+  try {
+    // (2) view カウントアップ API を呼び出す
+    const { data } = await axios.get('/api/track', {
+      params: { game: game.id }
+    })
+    console.log('[GameItem] /api/track response:', data)
+
+    // (3) 新しい views 値をイベントとして流す
+    window.dispatchEvent(new CustomEvent('view-updated', {
+      detail: {
+        game: game.id,
+        views: data.views as number
+      }
+    }))
+  } catch (e) {
+    console.error('[GameItem] track error:', e)
+  }
+
+  // (4) GA4 トラッキングを送ったあと、開いておいたタブを実際の URL にリダイレクト
   if (typeof gtag === 'function') {
-    gtag('event', 'outbound_click', {
+    ;(window as any).gtag('event', 'outbound_click', {
       event_category: 'Game Hub',
       event_label: url,
       transport_type: 'beacon',
       event_callback: () => {
-        window.open(url, '_blank')
-      },
+        newWindow.location.href = url
+      }
     })
-    // 保険として遅延オープン
+    // 念のため 500ms 後に確実にリダイレクト
     setTimeout(() => {
-      window.open(url, '_blank')
+      newWindow.location.href = url
     }, 500)
   } else {
-    window.open(url, '_blank')
+    // GA4 が無ければ即座にリダイレクト
+    newWindow.location.href = url
   }
 }
 </script>
@@ -79,15 +108,14 @@ function trackAndGo(url: string) {
   margin-bottom: 1rem;
 }
 
-/* Step2: ボタンを横並び＆同じサイズに */
 .links {
   display: flex;
   gap: 0.5rem;
 }
 .links a {
-  flex: 1;                           /* 幅を均等に */
+  flex: 1;
   display: inline-block;
-  padding: 0.6rem 0;                 /* 上下に余白を揃える */
+  padding: 0.6rem 0;
   background-color: #42b983;
   color: #fff !important;
   text-align: center;
@@ -101,7 +129,6 @@ function trackAndGo(url: string) {
   background-color: #369c6e;
 }
 
-/* 説明文 */
 .description {
   color: #333;
   margin: 0.5rem 0 1rem;
