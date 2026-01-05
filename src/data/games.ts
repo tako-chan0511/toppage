@@ -10,6 +10,53 @@ export interface GameInfo {
 
 export const games: GameInfo[] = [
   {
+    id: "vive-with-gemini",
+    title: "😎 Vive With Gemini",
+    description:
+      "PWA対応未：Vercel、Vue＋Vite＋Typscriptで実装。",
+    url: "https://hara0511vive-with-gemini.vercel.app/",
+    demoUrl:
+      "",
+    repo: "tako-chan0511/vive-with-gemini",
+  },
+  {
+    id: "Skilltrail",
+    title: "😎 作成アプリスキル一覧",
+    description:
+      "PWA対応未：Vercel、Vue＋Vite＋Typscriptで実装。",
+    url: "https://hara0511skilltrail.vercel.app/",
+    demoUrl:
+      "",
+    repo: "tako-chan0511/skilltrail",
+  },
+  {
+    id: "Minesweeper-vue",
+    title: "💣 マインスイーパ (Vue3-GithubPages)",
+    description: "PWA対応済：Vue3 + Composition API で実装。スマホ対応。",
+    url: "https://tako-chan0511.github.io/Minesweeper/",
+    demoUrl:
+      "https://drive.google.com/file/d/1nxwCwWmRVO_pgZrGHYGqGtrnkH6KYeHP/view?usp=drive_link",
+    repo: "tako-chan0511/Minesweeper",
+  },
+  {
+    id: "Animal-shogi-vue",
+    title: " 動物将棋(Vue3-GithubPages)",
+    description: "PWA対応未",
+    url: "https://tako-chan0511.github.io/vue-animal-shogi/",
+    demoUrl:
+      "",
+    repo: "tako-chan0511/vue-animal-shogi",
+  },
+  {
+    id: "backgammon",
+    title: " バックギャモン(Vue3-GithubPages)",
+    description: "PWA対応未",
+    url: "https://tako-chan0511.github.io/vue-backgammon/",
+    demoUrl:
+      "",
+    repo: "tako-chan0511/vue-backgammon",
+  },
+  {
     id: "Hit&Blow-vue-vercel",
     title: "🔢 HitBlow (Vue3-Vercel)",
     description:
@@ -20,13 +67,32 @@ export const games: GameInfo[] = [
     repo: "tako-chan0511/my-hitblow-game",
   },
   {
+    id: "my-market-analyst",
+    title: "😎 AIマーケットアナリスト",
+    description:
+      "PWA対応未：Vercel（GNewsとgemini AIのAPI活用）、Vue＋Vite＋Typscriptで実装。",
+    url: "https://hara0511my-market-analyst.vercel.app/",
+    demoUrl:
+      "",
+    repo: "tako-chan0511/my-market-analyst",
+  },
+  {
+    id: "my-daily-digest",
+    title: "😎 AIニュースダイジェスト",
+    description:
+      "PWA対応未：Vercel（GNewsとgemini AIのAPI活用）、Vue＋Vite＋Typscriptで実装。",
+    url: "https://hara0511my-daily-digest.vercel.app/",
+    demoUrl: "",
+    repo: "tako-chan0511/my-daily-digest",
+  },
+  {
     id: "ai-stat-analist",
     title: "😎 AI統計アナリスト",
     description:
       "PWA対応未：Vercel（e-statとgemini AIのAPI活用）、Vue＋Vite＋Typscriptで実装。",
-    url: "https://hara0511ai-stat-analist.vercel.app/",
+    url: "https://hara0511ai-stat-analyst.vercel.app/",
     demoUrl: "",
-    repo: "tako-chan0511/ai-stat-analist",
+    repo: "tako-chan0511/ai-stat-analyst",
   },
    {
     id: "jp-politics",
@@ -138,15 +204,7 @@ export const games: GameInfo[] = [
     repo: "tako-chan0511/matchinggame",
   },
 
-  {
-    id: "Minesweeper-vue",
-    title: "💣 マインスイーパ (Vue3-GithubPages)",
-    description: "PWA対応済：Vue3 + Composition API で実装。スマホ対応。",
-    url: "https://tako-chan0511.github.io/Minesweeper/",
-    demoUrl:
-      "https://drive.google.com/file/d/1nxwCwWmRVO_pgZrGHYGqGtrnkH6KYeHP/view?usp=drive_link",
-    repo: "tako-chan0511/Minesweeper",
-  },
+  
 
   {
     id: "tetris-vue",
