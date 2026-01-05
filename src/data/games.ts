@@ -39,13 +39,22 @@ export const games: GameInfo[] = [
     repo: "tako-chan0511/Minesweeper",
   },
   {
-    id: "Minesweeper-vue",
+    id: "Animal-shogi-vue",
     title: " 動物将棋(Vue3-GithubPages)",
     description: "PWA対応未",
     url: "https://tako-chan0511.github.io/vue-animal-shogi/",
     demoUrl:
       "",
     repo: "tako-chan0511/vue-animal-shogi",
+  },
+  {
+    id: "backgammon",
+    title: " バックギャモン(Vue3-GithubPages)",
+    description: "PWA対応未",
+    url: "https://tako-chan0511.github.io/vue-backgammon/",
+    demoUrl:
+      "",
+    repo: "tako-chan0511/vue-backgammon",
   },
   {
     id: "Hit&Blow-vue-vercel",
