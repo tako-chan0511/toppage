@@ -25,8 +25,16 @@
 <script setup lang="ts">
 const pageViews = ref<number | null>(null)
 
+// 型定義
+type FooterItem = {
+  id: string
+  label: string
+  url: string
+  stats: { views: number | null; likes: number | null }
+}
+
 // 管理するアイテムの定義
-const footerItems = ref([
+const footerItems = ref<FooterItem[]>([
   { id: 'intro-video', label: '自己紹介 ▶', url: 'https://drive.google.com/...', stats: { views: null, likes: null } },
   { id: 'challenge-video', label: 'おじさんの挑戦 ▶', url: 'https://drive.google.com/...', stats: { views: null, likes: null } },
   { id: 'github-link', label: 'Toppage GitHub 📂', url: 'https://github.com/tako-chan0511/toppage/', stats: { views: null, likes: null } },
@@ -47,13 +55,13 @@ onMounted(async () => {
   }
 })
 
-async function onClickItem(item: any) {
+async function onClickItem(item: FooterItem) {
   window.open(item.url, '_blank')
   const res = await $fetch<{ views: number }>('/api/track', { query: { game: item.id } })
   item.stats.views = res.views
 }
 
-async function onLikeItem(item: any) {
+async function onLikeItem(item: FooterItem) {
   const res = await $fetch<{ likes: number }>('/api/like', { query: { game: item.id } })
   item.stats.likes = res.likes
 }

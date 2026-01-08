@@ -30,7 +30,7 @@ export default defineEventHandler(async (event) => {
     // ② upsert して views を更新
     const { error: upErr } = await supabase
       .from('page_views')
-      .upsert({ game, views: newViews }, { onConflict: 'game' })
+      .upsert([{ game, views: newViews }] as any, { onConflict: 'game' })
 
     if (upErr) throw upErr
 
