@@ -53,7 +53,7 @@ export const games: GameInfo[] = [
     description: "PWA対応未",
     url: "https://tako-chan0511.github.io/vue-backgammon/",
     demoUrl:
-      "",
+      "https://drive.google.com/file/d/1k8QmQRci36n8ygqXVvny9kUB09laINxJ/view?usp=drive_link",
     repo: "tako-chan0511/vue-backgammon",
   },
   {
