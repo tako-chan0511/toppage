@@ -266,7 +266,7 @@ export const games: GameInfo[] = [
     title: "🎯 HitBlow (Next.js-Vercel)",
     description:
       "PWA対応済：Next.js + Canvas で書いたHit&Blow、スマホ対応。Vercelホスティング",
-    url: "https://hitblow-next.vercel.app/",
+    url: "https://tako-chan0511.github.io/hitblow-next/",
     demoUrl:
       "https://drive.google.com/file/d/1sC0ibWtbrWOFf5E_smbhLwJlOwELRaiC/view?usp=drive_link",
     repo: "tako-chan0511/hitblow-next",
