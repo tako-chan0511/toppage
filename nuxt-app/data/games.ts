@@ -14,7 +14,7 @@ export const games: GameInfo[] = [
     title: "😎 Vive With Gemini",
     description:
       "PWA対応未：Vercel、Vue＋Vite＋Typscriptで実装。",
-    url: "https://hara0511vive-with-gemini.vercel.app/",
+    url: "https://tako-chan0511.github.io/vive-with-gemini/",
     demoUrl:
       "",
     repo: "tako-chan0511/vive-with-gemini",
