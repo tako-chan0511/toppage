@@ -1,0 +1,55 @@
+name: Keep Supabase Active
+
+on:
+  schedule:
+    # 毎日日本時間9時（UTC0時）に実行
+    - cron: '0 0 * * *'
+  workflow_dispatch: # 手動実行も可能
+
+jobs:
+  keep-alive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install @supabase/supabase-js
+
+      - name: Keep Supabase active
+        run: |
+          node -e "
+          const { createClient } = require('@supabase/supabase-js');
+          const supabase = createClient(
+            '${{ secrets.SUPABASE_URL }}',
+            '${{ secrets.SUPABASE_KEY }}'
+          );
+          
+          async function keepAlive() {
+            try {
+              // ゲーム情報テーブルから1件取得してアクセス
+              const { data, error } = await supabase
+                .from('games')
+                .select('*')
+                .limit(1);
+              
+              if (error) {
+                console.error('Error:', error.message);
+                process.exit(1);
+              }
+              
+              console.log('✓ Supabase alive check completed');
+              console.log('Records accessed:', data?.length || 0);
+            } catch (err) {
+              console.error('Fatal error:', err);
+              process.exit(1);
+            }
+          }
+          
+          keepAlive();
+          "
