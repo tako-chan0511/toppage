@@ -32,9 +32,9 @@ jobs:
           
           async function keepAlive() {
             try {
-              // ゲーム情報テーブルから1件取得してアクセス
+              // page_views テーブルから1件取得してアクセス
               const { data, error } = await supabase
-                .from('games')
+                .from('page_views')
                 .select('*')
                 .limit(1);
               
