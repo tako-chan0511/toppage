@@ -10,6 +10,15 @@ export interface GameInfo {
 
 export const games: GameInfo[] = [
   {
+    id: "maze-generator",
+    title: "🧭 自動生成迷路ゲーム (Vue3-Vercel)",
+    description:
+      "PWA対応未：Vue3＋TypeScript＋Viteで実装。ドラッグ補正・ヒント・自動解答・ベスト記録に対応。スマホでも遊べます。",
+    url: "https://maze-generator-sandy.vercel.app/",
+    demoUrl: "",
+    repo: "tako-chan0511/maze-generator",
+  },
+  {
     id: "vive-with-gemini",
     title: "😎 Vive With Gemini",
     description:
