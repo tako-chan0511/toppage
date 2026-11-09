@@ -16,6 +16,8 @@
 </template>
 
 <script lang="ts" setup>
+type CountResponse = { count: number }
+
 const props = defineProps<{ gameId: string }>()
 
 // 1. views を個別に取得
@@ -24,7 +26,7 @@ const {
   status: viewsStatus, 
   error: viewsError, 
   refresh: refreshViews 
-} = await useFetch('/api/get-count', {
+} = await useFetch<CountResponse>('/api/get-count', {
   key: `views-${props.gameId}`,
   query: { game: props.gameId, field: 'views' }
 })
@@ -35,7 +37,7 @@ const {
   status: likesStatus, 
   error: likesError, 
   refresh: refreshLikes 
-} = await useFetch('/api/get-count', {
+} = await useFetch<CountResponse>('/api/get-count', {
   key: `likes-${props.gameId}`,
   query: { game: props.gameId, field: 'likes' }
 })
