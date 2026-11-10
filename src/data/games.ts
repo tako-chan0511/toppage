@@ -290,5 +290,15 @@ export const games: GameInfo[] = [
     repo: "tako-chan0511/Solitaire",
   },
 
+  {
+    id: "calcudoku",
+    title: "計算パズル（Calcudoku）",
+    description:
+      "3×3〜9×9の盤面に数字を配置し、行・列の重複禁止とケージの四則演算を満たす計算パズル。難易度・演算子・シードを自由に設定可能。ヒント、Undo/Redo、記録保存、途中再開にも対応。",
+    url: "https://calcudoku.vercel.app/",
+    demoUrl: "",
+    repo: "tako-chan0511/calcudoku",
+  },
+
   // …他のゲームも同様に
 ];
