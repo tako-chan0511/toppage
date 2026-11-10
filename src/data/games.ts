@@ -10,6 +10,16 @@ export interface GameInfo {
 
 export const games: GameInfo[] = [
   {
+    id: "my-2048-game",
+    title: "2048カスタム",
+    description:
+      "同じ数字をスライドして合体させ、目標の数字を目指すパズルゲーム。3×3〜10×10の盤面サイズ、目標数字、出現確率を自由に設定可能。Undo、ベスト記録、自動保存・復元、時間制限・手数制限モードにも対応。",
+    url: "https://my-2048-game-orcin.vercel.app/",
+    demoUrl: "",
+    repo: "tako-chan0511/my-2048-game",
+  },
+
+  {
     id: "calcudoku",
     title: "計算パズル（Calcudoku）",
     description:
